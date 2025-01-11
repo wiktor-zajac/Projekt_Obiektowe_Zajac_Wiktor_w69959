@@ -22,7 +22,6 @@ namespace WebAPI
                 app.MapOpenApi();
                 app.UseSwagger();
                 app.UseSwaggerUI();
-                //app.UseDeveloperExceptionPage();
             }
 
             app.UseHttpsRedirection();
