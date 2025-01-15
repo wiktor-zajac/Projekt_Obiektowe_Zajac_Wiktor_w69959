@@ -1,5 +1,4 @@
-﻿// Controllers/PagesController.cs
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;

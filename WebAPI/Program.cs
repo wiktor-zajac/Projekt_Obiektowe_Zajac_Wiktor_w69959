@@ -16,14 +16,11 @@ namespace WebAPI
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
-
             builder.Services.AddControllers();
-            // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+
             builder.Services.AddOpenApi();
             builder.Services.AddSwaggerGen(options =>
             {
-                // Add JWT Authentication to Swagger
                 options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     Description = @"JWT Authorization header using the Bearer scheme.  
@@ -73,7 +70,6 @@ namespace WebAPI
             })
             .AddJwtBearer(options =>
             {
-                // Configure JWT Bearer options
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuer = true,
@@ -85,30 +81,15 @@ namespace WebAPI
                     ValidAudience = audience,
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey)),
 
-                    ClockSkew = TimeSpan.Zero // Optional: Reduce token expiration tolerance
-                };
-
-                // Optional: Add event handlers for debugging
-                options.Events = new JwtBearerEvents
-                {
-                    OnAuthenticationFailed = context =>
-                    {
-                        if (context.Exception.GetType() == typeof(SecurityTokenExpiredException))
-                        {
-                            context.Response.Headers.Add("Token-Expired", "true");
-                        }
-                        return Task.CompletedTask;
-                    }
+                    ClockSkew = TimeSpan.Zero
                 };
             });
 
-            // Add Authorization
             builder.Services.AddAuthorization();
 
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.MapOpenApi();
