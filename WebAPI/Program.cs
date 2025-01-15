@@ -1,4 +1,8 @@
 
+using WebAPI.Generic.Repositories;
+using WebAPI.Security;
+using WebAPI.Users.Repository;
+
 namespace WebAPI
 {
     public class Program
@@ -13,6 +17,10 @@ namespace WebAPI
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddDbContext<UserContext>();
+            builder.Services.AddScoped<IUserRepository, UserRepository>();
+            builder.Services.AddSingleton<TokenProvider>();
+            builder.Services.AddAutoMapper(typeof(Program));
 
             var app = builder.Build();
 
