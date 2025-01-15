@@ -23,8 +23,8 @@ namespace WebAPI.Security
                 ]),
                 Expires = DateTime.UtcNow.AddMinutes(60),
                 SigningCredentials = credentials,
-                Issuer = configuration["JwtBearerExtensions:issuer"],
-                Audience = configuration["JwtBearerExtensions:audience"],
+                Issuer = configuration["jwt:issuer"],
+                Audience = configuration["jwt:audience"],
             };
 
             var handler = new JsonWebTokenHandler();

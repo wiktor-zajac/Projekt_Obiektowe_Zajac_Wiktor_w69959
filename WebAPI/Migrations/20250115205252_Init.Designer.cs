@@ -4,14 +4,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using WebAPI.Users.Repository;
 
 #nullable disable
 
 namespace WebAPI.Migrations
 {
-    [DbContext(typeof(UserContext))]
-    [Migration("20250115122229_Init")]
+    [DbContext(typeof(WebAPIContext))]
+    [Migration("20250115205252_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -20,7 +19,35 @@ namespace WebAPI.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.1");
 
-            modelBuilder.Entity("WebAPI.Users.User", b =>
+            modelBuilder.Entity("WebAPI.Pages.Models.Page", b =>
+                {
+                    b.Property<Guid>("Guid")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("CreatedBy")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Guid");
+
+                    b.ToTable("Pages");
+                });
+
+            modelBuilder.Entity("WebAPI.Users.Models.User", b =>
                 {
                     b.Property<Guid>("Guid")
                         .ValueGeneratedOnAdd()

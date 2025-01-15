@@ -6,7 +6,7 @@ namespace WebAPI.Users.Repository
 {
     public class UserRepository : Repository<User>, IUserRepository
     {
-        public UserRepository(UserContext context) : base(context)
+        public UserRepository(WebAPIContext context) : base(context)
         {
         }
     }

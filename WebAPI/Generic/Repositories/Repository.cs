@@ -19,7 +19,7 @@ namespace WebAPI.Generic.Repositories
             return await _dbSet.ToListAsync();
         }
 
-        public virtual async Task<T> GetByIdAsync(int id)
+        public virtual async Task<T> GetByIdAsync(Guid id)
         {
             return await _dbSet.FindAsync(id);
         }
@@ -37,13 +37,14 @@ namespace WebAPI.Generic.Repositories
 
         public virtual void Update(T entity)
         {
-            _dbSet.Attach(entity);
-            _context.Entry(entity).State = EntityState.Modified;
+            _dbSet.Update(entity);
+            _context.SaveChangesAsync();
         }
 
         public virtual void Remove(T entity)
         {
             _dbSet.Remove(entity);
+            _context.SaveChangesAsync();
         }
     }
 }
