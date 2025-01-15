@@ -1,13 +1,15 @@
 English README: Comming soon!
 
-Aby uruchomiæ program nale¿y przejœæ pod adres: `https://127.0.0.1:7199/swagger/`.
+Aby uruchomiÄ‡ program naleÅ¼y przejÅ›Ä‡ pod adres: `https://127.0.0.1:7199/swagger/`.
 
-Aby uzyskaæ dostêp do zastrze¿onych wyjœæ API, nale¿y siê wpierw zarejestrowaæ siê u¿ywaj¹c `/api/Authentication/Register`, kolejno zalogowaæ siê u¿ywaj¹c `/api/Authentication/Login`, czego wynikiem bêdzie zwrócenie JSON Web Token. W aplikacji Swagger nale¿y znaleŸæ przycisk **Authorize** i wprowadziæ `Bearer`, znak spacji i swój token i nacisn¹æ przycisk Authorize.
+Aby uzyskaÄ‡ dostÄ™p do zastrzeÅ¼onych wyjÅ›Ä‡ API, naleÅ¼y siÄ™ wpierw zarejestrowaÄ‡ siÄ™ uÅ¼ywajÄ…c `/api/Authentication/Register`, kolejno zalogowaÄ‡ siÄ™ uÅ¼ywajÄ…c `/api/Authentication/Login`, czego wynikiem bÄ™dzie zwrÃ³cenie JSON Web Token. W aplikacji Swagger naleÅ¼y znaleÅºÄ‡ przycisk **Authorize** i wprowadziÄ‡ `Bearer`, znak spacji i swÃ³j token i nacisnÄ…Ä‡ przycisk Authorize.
 
-`/WeatherForecast` i `/RestrictedWeatherForecast` to standardowe wyjœcia tworzone przy tworzeniu projektu APS.NET API. Pierwszy jest dostêpu ogólnego, gdzie do drugiego maj¹ dostêp tylko osoby zalogowane (z prawidlowym i wa¿nym tokenem JWT).
+`/WeatherForecast` i `/RestrictedWeatherForecast` to standardowe wyjÅ›cia tworzone przy tworzeniu projektu APS.NET API. Pierwszy jest dostÄ™pu ogÃ³lnego, gdzie do drugiego majÄ… dostÄ™p tylko osoby zalogowane (z prawidlowym i waÅ¼nym tokenem JWT).
 
-Endpointy `/api/Pages` i `/api/Pages/{guid}` wymagaj¹ bycia zalogowanym i umo¿liwiaj¹ pe³ny zakres operacji CRUD na obiektach w bazie danych.
+Endpointy `/api/Pages` i `/api/Pages/{guid}` wymagajÄ… bycia zalogowanym i umoÅ¼liwiajÄ… peÅ‚ny zakres operacji CRUD na obiektach w bazie danych.
 
-Jest to aplikacja .NET wykorzystuj¹ca taakie rozwi¹zania jak EntityFramework Core, JWT, Docker, AutoMapper, CQRS (MediatR) i Sqlite.
+Jest to aplikacja .NET wykorzystujÄ…ca taakie rozwiÄ…zania jak EntityFramework Core, JWT, Docker, AutoMapper, CQRS (MediatR) i Sqlite.
 
-Zastosowano tutaj liczne interfejsy, operacje CRUD na obiektach, walidacjê danych i obs³ugê b³êdów.
+Zastosowano tutaj liczne interfejsy, operacje CRUD na obiektach, walidacjÄ™ danych i obsÅ‚ugÄ™ bÅ‚Ä™dÃ³w.
+
+DziaÅ‚anie w kontenerze nie byÅ‚o do koÅ„ca testowane, zalecam uruchomienie programu lokalnie
