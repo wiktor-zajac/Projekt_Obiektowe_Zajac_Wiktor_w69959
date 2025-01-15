@@ -41,6 +41,15 @@ namespace WebAPI.Controllers
                 x.Email == registerDto.Email
             );
 
+            // Walidacja email
+            try
+            {
+                var email = new System.Net.Mail.MailAddress(registerDto.Email);
+            } catch (FormatException)
+            {
+                return BadRequest("Invalid email");
+            }
+
             if (foundUser.Any())
                 return BadRequest("User with this username or email already exists");
 
